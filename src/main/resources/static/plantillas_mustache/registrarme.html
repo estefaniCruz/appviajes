@@ -1,0 +1,60 @@
+<section class="registro-wrapper">
+  
+  <div class="registro-card">
+    <div class="registro-header">
+        <h2>Crear Cuenta 🚀</h2>
+        <p>Únete para descubrir las mejores ofertas</p>
+    </div>
+
+    <form id="form_registro" class="formulario-registro">
+        
+        <div class="form-row">
+            <div class="input-group">
+                <label>Nombre</label>
+                <div class="input-wrapper">
+                    <i class="fa-solid fa-user icono-input"></i>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" />
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Apellidos</label>
+                <div class="input-wrapper">
+                    <i class="fa-regular fa-user icono-input"></i> <input type="text" id="apellidos" name="apellidos" placeholder="Tus apellidos" />
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Email</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-envelope icono-input"></i>
+                <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" />
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label>Teléfono</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-phone icono-input"></i>
+                <input type="text" id="telefono" name="telefono" placeholder="+34 600 00 00 00" />
+            </div>
+        </div>
+        
+        <div class="input-group">
+            <label>Contraseña</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-lock icono-input"></i>
+                <input type="password" id="pass" name="pass" placeholder="Crea una contraseña segura" />
+            </div>
+        </div>
+
+        <input type="submit" value="Registrarme" class="boton-registro" />
+        
+        <div id="mensajeError" class="mensaje-error"></div>
+        
+        <p class="login-link">¿Ya tienes cuenta? <a href="identificarse">Inicia sesión</a></p>
+    </form>
+  </div>
+
+</section>

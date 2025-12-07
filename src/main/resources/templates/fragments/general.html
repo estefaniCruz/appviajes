@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <th:block th:replace="fragments/head :: head"></th:block>
+</head>
+
+<body class="bg-admin">
+
+    <div th:fragment="menu" class="admin-contenedor-principal">
+    
+        <div class="admin-topbar">
+             <a href="../" class="enlace-volver">
+                <i class="fa-solid fa-arrow-left"></i> <span th:text="#{enlace.volverPublica}">Volver</span>
+             </a>
+             
+             <div class="admin-idiomas">
+                <a href="?idioma=es" th:class="${param.idioma != null && param.idioma[0] == 'es' ? 'activo' : ''}">ES</a> 
+                <span class="separador">|</span>
+                <a href="?idioma=en" th:class="${param.idioma != null && param.idioma[0] == 'en' ? 'activo' : ''}">EN</a>
+             </div>
+        </div>
+
+        <div class="admin-dashboard-card">
+            
+            <div class="admin-header">
+                
+                <h1 class="admin-titulo" th:text="#{titulo.bienvenida}">Panel de Administración</h1>
+                <p class="admin-subtitulo">Selecciona una opción para gestionar la tienda</p>
+            </div>
+
+            <div class="admin-grid-opciones">
+                
+                <a href="obtenerViajes" class="opcion-card">
+                    <div class="icono-card"><i class="fa-solid fa-plane-departure"></i></div>
+                    <span class="titulo-card" th:text="#{enlaces.viajes}">Viajes</span>
+                </a>
+
+                <a href="obtenerUsuarios" class="opcion-card">
+                    <div class="icono-card"><i class="fa-solid fa-users"></i></div>
+                    <span class="titulo-card" th:text="#{enlaces.usuarios}">Usuarios</span>
+                </a>
+
+
+				 <a href="#"  class="opcion-card" >
+   				 	<div class="icono-card"><i class="fa-solid fa-tags"></i></div>
+    			 	<span class="titulo-card" th:text="#{enlaces.categorias}" onclick="alert('proximamente...')">Categorias</span>
+				 </a>
+
+                <a href="obtenerPedidos" class="opcion-card">
+                    <div class="icono-card"><i class="fa-solid fa-cart-shopping"></i></div>
+                    <span class="titulo-card" th:text="#{enlaces.pedidos}">Pedidos</span>
+                </a>
+
+                <a href="../logoutAdmin" class="opcion-card logout">
+                    <div class="icono-card"><i class="fa-solid fa-power-off"></i></div>
+                    <span class="titulo-card" th:text="#{enlaces.cerrarSesion}">Salir</span>
+                </a>
+                
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

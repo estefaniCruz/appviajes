@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar usuario- TiendaViajes</title>
+  <link rel="stylesheet" th:href="@{/css/estilos.css}" />
+</head>
+<body>
+
+  <div th:insert="fragments/general.html :: menu"></div>
+
+  <section class="form-seccion">
+    <h2>Modifica los datos del usuario</h2>
+
+    <form action="#" th:action="guardarCambiosUsuario" th:object="${usuarioEditar}" enctype="multipart/form-data" method="post" class="formulario-editar">
+      <label>Nombre</label>
+      <input type="text" th:field="*{nombre}" />
+      <span class="error-mensaje"th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" ></span>
+
+      <label>Apellidos</label>
+      <input type="text" th:field="*{apellidos}" />
+      <span class="error-mensaje"th:if="${#fields.hasErrors('apellidos')}" th:errors="*{apellidos}" ></span>
+
+      <label>Pass</label>
+      <input type="password" th:field="*{pass}" />
+      <span class="error-mensaje"th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}" ></span>
+
+      <label>Email</label>
+      <input type="email" th:field="*{email}" />
+      <span class="error-mensaje"th:if="${#fields.hasErrors('email')}" th:errors="*{email}" ></span>
+
+      <label>Telefono</label>
+      <input type="text" th:field="*{telefono}" />
+      <span class="error-mensaje"th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}" ></span>
+
+ 
+
+
+      <input type="hidden" th:field="*{id}" />
+
+      <button type="submit" class="boton-guardar">Guardar cambios</button>
+    </form>
+  </section>
+
+</body>
+</html>

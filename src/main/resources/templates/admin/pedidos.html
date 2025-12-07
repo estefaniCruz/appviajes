@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="fragments/head :: head"></th:block>
+</head>
+<body>
+
+  <div th:insert="fragments/general.html :: menu"></div>
+
+  <section class="admin-pedidos">
+    
+    <div class="encabezado-admin">
+      <h2>Gestión de Pedidos</h2>
+      </div>
+
+    <div class="listado-pedidos-admin">
+      
+      <div class="tarjeta-pedido" th:each="pedido : ${pedidos}">
+        
+        <div class="pedido-header">
+            <div class="icono-pedido">
+                <i class="fa-solid fa-box-open"></i>
+            </div>
+            <span class="pedido-id">ID: #<span th:text="${pedido.id}"></span></span>
+        </div>
+
+        <div class="pedido-info">
+            <h3 th:text="${pedido.nombreCompleto}">Nombre Cliente</h3>
+            
+            <p class="dato-direccion">
+                <i class="fa-solid fa-location-dot"></i>
+                <span th:text="${pedido.direccion}"></span>
+            </p>
+            
+            <div class="dato-estado">
+                <span>Estado:</span>
+                <span class="etiqueta-estado" th:text="${pedido.estado}"></span>
+            </div>
+        </div>
+        
+        <div class="acciones-pedido">
+          <a th:href="@{${ 'verDetallesPedido?id=' + pedido.id }}" class="boton-detalles">
+            Ver detalles <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

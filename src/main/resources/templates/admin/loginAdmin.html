@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso Administración</title>
+  <link rel="stylesheet" th:href="@{/css/estilos.css}" />
+</head>
+
+<body class="body-login-especial">
+
+  <div class="login-container">
+    <h2>Acceso a Administración</h2>
+
+    <div class="mensaje-error" th:if="${mensaje != null}" th:text="${mensaje}"></div>
+
+    <form action="admin/obtenerViajes" method="post">
+      <div class="input-wrapper">
+          <i class="fa-solid fa-key icono-input"></i>
+          <input type="password" name="pass-admin" placeholder="Introduce la contraseña maestra" required />
+      </div>
+      
+      <input type="submit" value="ENTRAR AL PANEL" />
+    </form>
+  </div>
+
+</body>
+</html>

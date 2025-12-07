@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<!-- oye este bloque lo vas a reemplazar por lo que haya en esta ruta llamada head -->
+  <th:block th:replace="fragments/head :: head"></th:block>
+
+<body>
+
+  <!-- Menú superior -->
+  <header class="menu">
+    <div class="logo">Starlit</div>
+   <div class="idiomas">
+        <a href="?idioma=es">SPANISH</a> 
+        <span class="separador">|</span>
+        <a href="?idioma=en">ENGLISH</a> 		
+    </div>
+    
+    <nav>
+<!--Todos estos enlaces no recargan la página, sino que ejecutan funciones JavaScript asociadas por ID. -->
+<!--estos eventos se atienden en funciones_menu.js, en la parte inferior se hacen las llamadas -->
+      <a href="#" id="enlace_viajes">TRIPS</a>
+      <a href="#" id="enlace_identificarme">LOGIN</a>
+      <a href="#" id="enlace_registrarme">REGISTER</a>
+      <a href="#" id="enlace_carrito">CART</a>
+      <a href="#" onclick="alert('por hacer...')">MY ORDERS</a>
+      
+      
+  
+    </nav>
+  </header>
+
+  <!-- Texto de bienvenida -->
+  <section class="bienvenida">
+    <h1 style="color: #ff6e6e;">Welcome to the travel store</h1>
+    <p>Descubre nuestras mejores ofertas</p>
+    <a href="admin/obtenerViajes" class="boton-admin">Administration access</a>
+    
+    
+  </section>
+  
+  <!--   generalmente el que lleve id es porque tiene javascript encima para eventos,etc -->
+<div  class="nombre-usuario" id="login_usuario">
+unidentified user
+</div>
+
+
+
+  <!-- Aquí se cargarán los viajes con JavaScript -->
+  <!--   yo tengo 1 contenedor -->
+  <section id="contenedor">
+    <!-- Contenido dinámico -->
+  </section>
+ 
+
+<!-- en esta pagina se esta usando javascript, por ellos estan los script -->
+<!-- si no pongo script, no funciona es como el link del css
+siempre que entre a esta pagina, se ejecutan todos los script automat y en orden  -->
+  <!-- Scripts necesarios -->
+  <script src="librerias_js/jquery.js"></script>
+  <script src="librerias_js/mustache.js"></script>
+  <script src="javascript/globales.js"></script>
+  <script>
+	idioma = "_en"
+  </script>
+  <script src="javascript/cargar_plantillas.js"></script>
+  <script src="javascript/funciones_menu.js"></script>
+  <script src="javascript/main.js"></script>
+  
+  <div th:insert="fragments/footer :: footer"></div>
+
+</body>
+</html>

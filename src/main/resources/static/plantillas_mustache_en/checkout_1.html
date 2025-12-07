@@ -1,0 +1,62 @@
+<div class="pedido-contenedor">
+  <h2>REALIZAR PEDIDO - PASO 1</h2>
+  <p>Introduce tus datos de envío:</p>
+  <p class="nota">(* No introducir datos reales, aplicación en pruebas)</p>
+
+  <form onsubmit="return false;" class="formulario-pedido">
+    
+    <div class="campo-grupo">
+        <label for="campo_nombre">Nombre completo:</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-user icono-input"></i>
+            <input type="text" id="campo_nombre" required placeholder="Ej: Juan García">
+        </div>
+    </div>
+
+    <div class="campo-grupo">
+        <label for="campo_direccion">Dirección completa:</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-location-dot icono-input"></i>
+            <input type="text" id="campo_direccion" required placeholder="Ej: Calle Mayor 22, 3ºA">
+        </div>
+    </div>
+
+    <div class="fila-doble">
+        <div class="campo-grupo">
+            <label for="campo_provincia">Provincia:</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-map icono-input"></i>
+                <input type="text" id="campo_provincia" required placeholder="Ej: Madrid">
+            </div>
+        </div>
+        <div class="campo-grupo">
+            <label for="campo_codigo_postal">Código postal:</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-envelopes-bulk icono-input"></i>
+                <input type="text" id="campo_codigo_postal" required pattern="[0-9]{5}" placeholder="28080">
+            </div>
+        </div>
+    </div>
+
+    <div class="fila-doble">
+        <div class="campo-grupo">
+            <label for="campo_email">Email:</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-at icono-input"></i>
+                <input type="email" id="campo_email" required placeholder="correo@ejemplo.com">
+            </div>
+        </div>
+        <div class="campo-grupo">
+            <label for="campo_movil">Móvil:</label>
+            <div class="input-wrapper">
+                <i class="fa-solid fa-mobile-screen icono-input"></i>
+                <input type="text" id="campo_movil" required pattern="[0-9]{9}" placeholder="612345678">
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" id="aceptar_paso_1">CONTINUAR AL PASO 2 <i class="fa-solid fa-arrow-right"></i></button>
+    
+    <div id="mensajeError" class="mensaje-error"></div>
+  </form>
+</div>

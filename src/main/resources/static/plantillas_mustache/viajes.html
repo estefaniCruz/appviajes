@@ -1,0 +1,38 @@
+<div>
+  <form id="desplegable_estaciones">
+  <label for="estacion-preferida">¿Cuál es tu estación preferida?</label>
+    <select id="estacion-preferida" name="estacion">
+        <option value="" disabled selected>Selecciona una estación:</option>
+        <option value="primavera">Primavera</option>
+        <option value="verano">Verano</option>
+        <option value="otoño">Otoño</option>
+        <option value="invierno">Invierno</option>
+    </select>
+  </form>
+</div>
+
+<div class="listado-viajes">
+{{ #array_viajes }}
+
+<div class="tarjeta-viaje">
+  <img src="mostrar_imagen?id={{ ID }}" alt="Imagen del destino" />
+
+  <div class="tarjeta-contenido">
+    <p><strong>Epoca:</strong> {{ EPOCA }}</p>
+    <p><strong>Destino:</strong> {{ DESTINO }}</p>
+    <p><strong>Noches:</strong> {{ NOCHES }}</p>
+    <p><strong>Tipo alojamiento:</strong> {{ TIPO_ALOJAMIENTO }}</p>
+    <p><strong>Categoria:</strong> {{ NOMBRE_CATEGORIA }}</p>
+    <p><strong>Descripcion:</strong> {{ DESCRIPCION }}</p>
+    <p class="precio"><strong>Precio:</strong> {{ PRECIO }} €</p>
+    <p><strong>Activo:</strong> {{ ACTIVO }}</p>
+
+    <div class="acciones">
+      <a class="boton-detalle" href="#" onclick="alert('por hacer...')">VER DETALLES</a>
+	<a class="boton-detalle  enlace_comprar_viaje"  href="#" id-viaje="{{ID}}">AÑADIR AL CARRITO</a>
+    </div>
+  </div>
+</div>
+
+{{ /array_viajes }}
+</div>

@@ -1,0 +1,25 @@
+<div class="pedido-contenedor">
+  <h2>REALIZAR PEDIDO - PASO 3</h2>
+  <p>¿Quieres añadir alguna nota?</p>
+  <p class="nota">(* Opcional: Sugerencias o consejos para mejorar...)</p>
+
+  <form onsubmit="return false;" class="formulario-pedido">
+   
+    <div class="campo-grupo">
+        <label for="comentario">Comentarios:</label>
+        <div class="input-wrapper">
+            <i class="fa-regular fa-comment-dots icono-input icono-textarea"></i>
+            <textarea id="comentario" rows="4" placeholder="Ej: Añadir viajes poco conocidos"></textarea>
+        </div>
+    </div>
+
+    <button type="submit" id="aceptar_paso_3">
+        FINALIZAR PEDIDO <i class="fa-solid fa-flag-checkered"></i>
+    </button>
+    
+    <div id="mensajeError" class="mensaje-error"></div>
+   
+  </form>
+</div>
+
+

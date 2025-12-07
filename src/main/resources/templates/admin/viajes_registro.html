@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <th:block th:replace="fragments/head :: head"></th:block>
+</head>
+
+<body>
+
+  <!-- Menú -->
+  <div th:insert="fragments/general.html :: menu"></div>
+
+  <!-- Sección principal -->
+  <section class="form-seccion">
+    <h2>Introduce los datos del nuevo viaje</h2>
+
+    <form th:action="guardarViaje" th:object="${nuevoViaje}" method="post" enctype="multipart/form-data" class="formulario-editar">
+      
+      <label>Epoca</label>
+      <input type="text" th:field="*{epoca}" />
+      <span class="error-mensaje"th:if="${#fields.hasErrors('epoca')}" th:errors="*{epoca}" ></span>
+      
+
+
+      <label>Destino</label>
+      <input type="text" th:field="*{destino}" />
+       <span class="error-mensaje" th:if="${#fields.hasErrors('destino')}" th:errors="*{destino}" ></span>
+       
+
+      <label>Noches</label>
+      <input type="number"  th:field="*{noches}"  min="1" max="30" placeholder="Ej: 2" required/>
+      <span class="error-mensaje" th:if="${#fields.hasErrors('noches')}" th:errors="*{noches}" ></span>
+      
+
+      <label>Tipo de alojamiento</label>
+      <input type="text" th:field="*{tipo_alojamiento}" />
+      <span class="error-mensaje" th:if="${#fields.hasErrors('tipo_alojamiento')}" th:errors="*{tipo_alojamiento}" ></span>
+      
+
+      <label>Descripción</label>
+      <textarea rows="3" th:field="*{descripcion}"></textarea>
+      <span class="error-mensaje" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></span>
+
+      <label>Precio</label>
+      <input type="number" step=".01" th:field="*{precio}" min="20" max="1000" />
+      <span class="error-mensaje" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}" ></span>
+      
+            
+
+      <label class="checkbox-label">
+        <input type="checkbox" th:field="*{activo}" /> Activo
+      </label>
+      
+	  
+	  <label>Categoria</label>
+	  <select th:field="*{idCategoria}">
+	  	<option th:each="c : ${categorias}" th:text="${c.nombre}" th:value="${c.id}"></option>
+	  </select>
+	  
+      <label>Portada</label>
+      <input type="file" th:field="*{imagen}" />
+      
+
+      <button type="submit" class="boton-guardar">Registrar viaje</button>
+    </form>
+  </section>
+
+</body>
+</html>

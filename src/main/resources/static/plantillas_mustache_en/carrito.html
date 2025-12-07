@@ -1,0 +1,48 @@
+<div class="contenedor-carrito-page">
+  
+  <div class="titulo-carrito">
+    Tu Carrito de Aventuras <i class="fa-solid fa-cart-shopping"></i>
+  </div>
+
+  <div class="grid-carrito">
+    
+    {{#.}} 
+      <div class="tarjeta-carrito">
+        
+        <img class="imagen-carrito" src="mostrar_imagen?id={{ VIAJE_ID }}" alt="Foto viaje" />
+        
+        <div class="contenido-carrito">
+          <h3>{{ DESTINO }}</h3>
+          
+          <div class="datos-viaje">
+            <p><i class="fa-regular fa-calendar"></i> <span>{{ EPOCA }}</span></p>
+            <p><i class="fa-solid fa-moon"></i> <span>{{ NOCHES }} noches</span></p>
+            <p><i class="fa-solid fa-hotel"></i> <span>{{ TIPO_ALOJAMIENTO }}</span></p>
+            <p class="descripcion-corta">{{ DESCRIPCION }}</p>
+          </div>
+
+          <div class="precio-bloque">
+            <span class="etiqueta">Precio:</span>
+            <span class="precio-valor">{{ PRECIO }} €</span>
+          </div>
+          
+          <div class="cantidad-bloque">
+             <span>Cantidad: {{ CANTIDAD }}</span>
+          </div>
+
+          <div class="acciones-carrito">
+            <a id-viaje="{{VIAJE_ID}}" class="boton-borrar enlace-borrar-viaje-carrito" href="#">
+              <i class="fa-solid fa-trash-can"></i> Eliminar
+            </a>
+          </div>
+        </div>
+      </div>
+    {{/.}}
+    
+  </div> <div class="resumen-final">
+      <a href="#" id="realizar_pedido" class="boton-pagar">
+        CONFIRMAR Y PAGAR <i class="fa-solid fa-arrow-right"></i>
+      </a>
+  </div>
+
+</div>

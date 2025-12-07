@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar viaje - TiendaViajes</title>
+  <link rel="stylesheet" th:href="@{/css/estilos.css}" />
+</head>
+<body>
+
+  <div th:insert="fragments/general.html :: menu"></div>
+
+  <section class="form-seccion">
+    <h2>Modifica los datos del viaje</h2>
+
+    <form action="#" th:action="guardarCambiosViaje" th:object="${viajeEditar}" enctype="multipart/form-data" method="post" class="formulario-editar">
+      <label>Época</label>
+      <input type="text" th:field="*{epoca}" />
+      <span class="error-mensaje"th:if="${#fields.hasErrors('epoca')}" th:errors="*{epoca}" ></span>
+
+      <label>Destino</label>
+      <input type="text" th:field="*{destino}" />
+      <span class="error-mensaje" th:if="${#fields.hasErrors('destino')}" th:errors="*{destino}" ></span>
+
+      <label>Noches</label>
+      <input type="number" th:field="*{noches}" />
+      <span class="error-mensaje" th:if="${#fields.hasErrors('noches')}" th:errors="*{noches}" ></span>
+
+      <label>Tipo de alojamiento</label>
+      <input type="text" th:field="*{tipo_alojamiento}" />
+      <span class="error-mensaje" th:if="${#fields.hasErrors('tipo_alojamiento')}" th:errors="*{tipo_alojamiento}" ></span>
+
+      <label>Descripción</label>
+      <textarea rows="3" th:field="*{descripcion}"></textarea>
+      <span class="error-mensaje" th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}"></span>
+      
+
+      <label>Precio</label>
+      <input type="number" step=".01" th:field="*{precio}" />
+      <span class="error-mensaje" th:if="${#fields.hasErrors('precio')}" th:errors="*{precio}" ></span>
+
+      <label class="checkbox-label">
+        <input type="checkbox" th:field="*{activo}" /> Activo
+      </label>
+      
+      <label>Categoria</label>
+	  <select th:field="*{idCategoria}">
+	  	<option th:each="c : ${categorias}" th:text="${c.nombre}" th:value="${c.id}"></option>
+	  </select>
+      
+<!--       gracias a esto al editar la foto aparece en la parte de abajo -->
+
+      <img th:src="@{${ '../mostrar_imagen?id=' + viajeEditar.id }}"/>
+      <label>actualizar imagen</label>
+      
+      portada: <input type="file" th:field="*{imagen}" />
+      
+
+      <input type="hidden" th:field="*{id}" />
+
+      <button type="submit" class="boton-guardar">Guardar cambios</button>
+    </form>
+  </section>
+
+</body>
+</html>

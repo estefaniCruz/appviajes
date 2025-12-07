@@ -1,0 +1,41 @@
+<section class="login-wrapper">
+  
+  <div class="login-card">
+    <div class="login-header">
+        <h2>Welcome back! 👋</h2>
+        <p>Enter your account details</p>
+    </div>
+
+    <form id="form_login" class="formulario-login">
+      
+      <div class="input-group">
+        <label for="email">Email</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-envelope icono-input"></i>
+            <input type="email" id="email" name="email" placeholder="example@email.com" />
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="pass">Pass</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-lock icono-input"></i>
+            <input type="password" id="pass" name="pass" placeholder="••••••••" />
+        </div>
+      </div>
+
+      <div class="recordar">
+        <label class="checkbox-container">
+            <input type="checkbox" id="recordar_datos" />
+            <span class="checkmark"></span>
+            Remember me
+        </label>
+      </div>
+
+      <input type="submit" value="Sign In" class="boton-login" />
+      
+      <div id="mensajeError" class="mensaje-error"></div>
+    </form>
+  </div>
+
+</section>

@@ -1,0 +1,10 @@
+target/
+*.jar
+*.class
+.classpath
+.project
+.settings/
+bin/
+.idea/
+*.log
+node_modules/

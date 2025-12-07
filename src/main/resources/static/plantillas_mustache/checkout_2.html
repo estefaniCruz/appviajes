@@ -1,0 +1,48 @@
+<div class="pedido-contenedor">
+  <h2>REALIZAR PEDIDO - PASO 2</h2>
+  <p>Introduce tus datos de pago:</p>
+  
+  <div class="aviso-seguridad">
+      <i class="fa-solid fa-lock"></i> Pago 100% Seguro (Simulado)
+  </div>
+  
+  <p class="nota">(*No introducir datos reales, aplicación en pruebas)</p>
+
+  <form onsubmit="return false;" class="formulario-pedido">
+    
+    <div class="campo-grupo">
+        <label for="tipo_tarjeta">Tipo de tarjeta:</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-credit-card icono-input"></i>
+            <select id="tipo_tarjeta" required>
+              <option value="0" disabled selected>Selecciona tu tarjeta</option>
+              <option value="1">VISA</option>
+              <option value="2">MASTER CARD</option>
+            </select>
+            <i class="fa-solid fa-chevron-down icono-flecha"></i>
+        </div>
+    </div>
+
+    <div class="campo-grupo">
+        <label for="numero_tarjeta">Número de la tarjeta:</label>
+        <div class="input-wrapper">
+            <i class="fa-regular fa-credit-card icono-input"></i>
+            <input type="text" id="numero_tarjeta" required placeholder="0000 0000 0000 0000">
+        </div>
+    </div>
+
+    <div class="campo-grupo">
+        <label for="titular_tarjeta">Titular de la tarjeta:</label>
+        <div class="input-wrapper">
+            <i class="fa-solid fa-user-pen icono-input"></i>
+            <input type="text" id="titular_tarjeta" required placeholder="Nombre como aparece en la tarjeta">
+        </div>
+    </div>
+
+    <button type="submit" id="aceptar_paso_2">
+        PAGAR Y FINALIZAR <i class="fa-solid fa-check-circle"></i>
+    </button>
+    
+    <div id="mensajeError" class="mensaje-error"></div>
+  </form>
+</div>

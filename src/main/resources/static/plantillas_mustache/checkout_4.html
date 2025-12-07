@@ -1,0 +1,53 @@
+<div class="pedido-contenedor resumen-final">
+  <h2>RESUMEN DEL PEDIDO</h2>
+  <p class="subtitulo">Por favor, revisa que todo esté correcto antes de confirmar.</p>
+
+  <div class="bloque resumen-productos">
+    <h3><i class="fa-solid fa-suitcase"></i> Tu Viaje</h3>
+    <div id="productos_pedido" class="grid-productos">
+      {{#viajes}}
+        <div class="producto-item">
+          <img src="mostrar_imagen?id={{ VIAJE_ID }}" alt="imagen viaje" class="img-resumen" />
+          
+          <div class="info-resumen">
+              <p class="destino">{{DESTINO}}</p>
+              <div class="detalles-fila">
+                  <span class="precio">{{PRECIO}} €</span>
+                  <span class="cantidad">x{{CANTIDAD}}</span>
+              </div>
+          </div>
+        </div>
+      {{/viajes}}
+    </div>
+  </div>
+  
+  <div class="bloque">
+    <h3><i class="fa-regular fa-comment"></i> Notas</h3>
+    <p class="texto-comentario">{{comentario}}</p>
+    </div>
+
+  <div class="bloque">
+    <h3><i class="fa-solid fa-truck-fast"></i> Datos de Envío</h3>
+    <div class="datos-lista">
+        <p><strong>Nombre:</strong> {{nombreCompleto}}</p>
+        <p><strong>Dirección:</strong> {{direccion}}</p>
+        <p><strong>Provincia:</strong> {{provincia}} ({{codigoPostal}})</p>
+        <p><strong>Contacto:</strong> {{email}} | {{movil}}</p>
+    </div>
+  </div>
+
+  <div class="bloque bloque-pago">
+    <h3><i class="fa-solid fa-credit-card"></i> Método de Pago</h3>
+    <div class="tarjeta-visual">
+        <p class="tipo-tarjeta">{{tipoTarjeta}}</p>
+        <p class="numero-oculto">•••• •••• •••• {{numeroTarjeta}}</p> <p class="titular">{{titularTarjeta}}</p>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <button class="boton-confirmar" id="boton_confirmar_pedido">
+        CONFIRMAR Y COMPRAR <i class="fa-solid fa-check"></i>
+    </button>
+  </div>
+</div>
+

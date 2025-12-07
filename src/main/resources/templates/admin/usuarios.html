@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="fragments/head :: head"></th:block>
+</head>
+<body>
+
+  <div th:insert="fragments/general.html :: menu"></div>
+
+  <section class="admin-usuarios">
+    
+    <div class="encabezado-admin">
+      <h2>Gestión de Usuarios</h2> <a href="registrarUsuario" class="boton-registro">
+        <i class="fa-solid fa-user-plus"></i> Registrar Usuario
+      </a>
+    </div>
+
+    <div class="listado-usuarios-admin">
+      
+      <div class="tarjeta-admin" th:each="usuario : ${usuarios}">
+        
+        <div class="avatar-usuario">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
+        <h3 class="nombre-completo">
+            <span th:text="${usuario.nombre}"></span> 
+            <span th:text="${usuario.apellidos}"></span>
+        </h3>
+        
+        <div class="datos-usuario">
+            <p>
+                <i class="fa-solid fa-envelope"></i> 
+                <span th:text="${usuario.email}"></span>
+            </p>
+            <p>
+                <i class="fa-solid fa-phone"></i> 
+                <span th:text="${usuario.telefono}"></span>
+            </p>
+            <p class="dato-password">
+                <i class="fa-solid fa-key"></i> 
+                <span th:text="${usuario.pass}"></span>
+            </p>
+            <p class="dato-id">ID: <span th:text="${usuario.id}"></span></p>
+        </div>
+
+        <div class="acciones-admin">
+          <a th:href="@{${'borrarUsuario?id=' + usuario.id}}" class="boton-borrar" onclick="return confirm('¿Seguro que deseas borrar este usuario?')">
+            <i class="fa-solid fa-trash"></i> Borrar
+          </a>
+          <a th:href="@{${'editarUsuario?id=' + usuario.id}}" class="boton-editar">
+            <i class="fa-solid fa-pen"></i> Editar
+          </a>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+</body>
+</html>

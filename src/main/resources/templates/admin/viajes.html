@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <th:block th:replace="fragments/head :: head"></th:block>
+</head>
+<body>
+
+  <div th:insert="fragments/general.html :: menu"></div>
+
+  <section class="admin-viajes">
+    
+    <div class="encabezado-admin">
+      <h2 >Gestión de Viajes</h2>
+      <a href="registrarViaje" class="boton-registro" th:text="#{enlace.registrarNuevoViaje}">
+        <i class="fa-solid fa-plus"></i> Registrar Nuevo Viaje
+      </a>
+    </div>
+
+    <div class="listado-viajes-admin">
+      
+      <div class="tarjeta-admin" th:each="viaje : ${viajes}">
+        
+        <div class="wrapper-imagen">
+            <img class="imagen-admin" th:src="@{${ '../mostrar_imagen?id=' + viaje.id }}" alt="Foto viaje"/>
+            <span class="badge-categoria" th:text="${viaje.categoria?.nombre ?: 'Sin Categoría'}"></span>
+        </div>
+
+        <div class="contenido-viaje">
+            
+            <div class="titulo-row">
+                <h3 th:text="${viaje.destino}">Destino</h3>
+                <span class="badge-activo" th:classappend="${viaje.activo} ? 'activo-si' : 'activo-no'">
+                    <i th:class="${viaje.activo} ? 'fa-solid fa-check' : 'fa-solid fa-xmark'"></i>
+                </span>
+            </div>
+
+            <div class="datos-grid">
+                <p><i class="fa-regular fa-calendar"></i> <span th:text="${viaje.epoca}"></span></p>
+                <p><i class="fa-solid fa-moon"></i> <span th:text="${viaje.noches} + ' noches'"></span></p>
+                <p><i class="fa-solid fa-hotel"></i> <span th:text="${viaje.tipo_alojamiento}"></span></p>
+            </div>
+            
+            <p class="descripcion-corta" th:text="${viaje.descripcion}"></p>
+
+            <div class="precio-row">
+                <span>Precio:</span>
+                <span class="precio-valor" th:text="${viaje.precio} + ' €'"></span>
+            </div>
+        </div>
+        
+        <div class="acciones-admin">
+          <a th:href="@{${'borrarViaje?id=' + viaje.id}}" class="boton-borrar" th:text="#{boton.borrar}" onclick="return confirm('¿Seguro que deseas borrar este viaje?')">
+            <i class="fa-solid fa-trash"></i> Borrar
+          </a>
+          <a th:href="@{${'editarViaje?id=' + viaje.id}}" class="boton-editar" th:text="#{boton.editar}">
+            <i class="fa-solid fa-pen"></i> Editar
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
