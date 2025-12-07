@@ -67,8 +67,8 @@ Para ejecutar Starlit en tu entorno local, necesitas tener instalado **Java 21 S
 
 1.  **Clonar el Repositorio:**
     ```bash
-    git clone [TU_URL_DE_GITHUB]
-    cd [nombre-del-proyecto]
+    git clone https://github.com/estefaniCruz/appviajes.git
+    cd appviajes
     ```
 2.  **Abrir en Eclipse:** Importar el proyecto como un proyecto Maven existente.
 3.  **Ejecutar:** Ejecutar la clase principal `*Application.java` como una aplicación Spring Boot.
